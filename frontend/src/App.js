@@ -16,21 +16,15 @@ function App() {
   const [sortOrder, setSortOrder] = useState("latest");
 
 
-
-  // LOAD DOCUMENTS
   const fetchDocuments = async () => {
     try {
-
-      const res = await axios.get(
-        "http://127.0.0.1:8000/documents"
-      );
-
+      const res = await axios.get("http://127.0.0.1:8000/documents");
       setDocuments(res.data);
 
-    } catch (error) {
-      console.log(error);
-    }
-  };
+      } catch (error) {
+        console.log(error);
+      }
+    };    
 
 
   // SSE PROGRESS
@@ -64,8 +58,6 @@ function App() {
   }, []);
 
 
-
-  // UPLOAD FILE
   const uploadFile = async () => {
 
     if (!file) {
